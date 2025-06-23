@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Task Manager</h1>
+    
+    <div class="form">
+      <input type="text" id="taskName" placeholder="Task Name" />
+      <input type="text" id="taskCategory" placeholder="Category" />
+      <input type="date" id="taskDeadline" />
+      <select id="taskStatus">
+        <option>In Progress</option>
+        <option>Completed</option>
+      </select>
+      <button id="addTaskBtn">Add Task</button>
+    </div>
+
+    <div class="filters">
+      <select id="filterStatus">
+        <option value="">All Statuses</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+        <option>Overdue</option>
+      </select>
+
+      <input type="text" id="filterCategory" placeholder="Filter by Category" />
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
