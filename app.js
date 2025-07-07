@@ -1,4 +1,4 @@
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks = (localStorage.getItem("tasks")) || [];
 
 function saveTasks() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -32,7 +32,7 @@ function renderTasks() {
       <select onchange="updateStatus(${index}, this.value)">
         <option ${task.status === "In Progress" ? "selected" : ""}>In Progress</option>
         <option ${task.status === "Completed" ? "selected" : ""}>Completed</option>
-        <option ${task.status === "Overdue" ? "selected" : ""}>Overdue</option>
+        
       </select>
     `;
     taskList.appendChild(li);
@@ -43,21 +43,11 @@ function renderTasks() {
 
 function addTask() {
   const name = document.getElementById("taskName").value.trim();
-  const category = document.getElementById("taskCategory").value.trim();
   const deadline = document.getElementById("taskDeadline").value;
   const status = document.getElementById("taskStatus").value;
 
-  if (!name || !category || !deadline) return alert("Fill all fields!");
+ 
 
-  tasks.push({ name, category, deadline, status });
-  document.querySelector(".form").reset();
-  renderTasks();
-}
-
-function updateStatus(index, newStatus) {
-  tasks[index].status = newStatus;
-  renderTasks();
-}
 
 document.getElementById("addTaskBtn").addEventListener("click", addTask);
 document.getElementById("filterStatus").addEventListener("change", renderTasks);
